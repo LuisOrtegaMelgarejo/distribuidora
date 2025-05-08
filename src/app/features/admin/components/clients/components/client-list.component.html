@@ -1,0 +1,32 @@
+<div class="card">
+    <div class="title">
+        Listado de Clientes
+        <button pButton type="button" icon="pi pi-plus" (click)="createClient()">Crear Cliente</button>
+    </div>
+    <p-table [value]="clients" [tableStyle]="{ 'min-width': '50rem' }">
+        <ng-template #header>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Direccion</th>
+                <th>Ubigeo</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </ng-template>
+        <ng-template #body let-client>
+            <tr>
+                <td>{{ client.nombre }}</td>
+                <td>{{ client.apellido }}</td>
+                <td>{{ client.direccion }}</td>
+                <td>{{ client.distrito }}/{{ client.provincia }}/{{ client.departamento }}</td>
+                <td>
+                    <button pButton pRipple type="button" icon="pi pi-pencil" rounded text severity="secondary" (click)="editClient(client.id)"></button>
+                </td>
+                <td>
+                    <button pButton pRipple type="button" icon="pi pi-trash" rounded text severity="secondary" (click)="deleteClient(client.id)"></button>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>

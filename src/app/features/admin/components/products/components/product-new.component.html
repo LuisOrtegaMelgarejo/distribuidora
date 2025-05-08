@@ -1,0 +1,31 @@
+<div class="card">
+    <button pButton type="button" icon="pi pi-arrow-left"  severity="secondary" (click)="returnToList()"> Volver </button>
+    <div class="title">
+        Crear producto
+    </div>
+    <div class="product-box">
+        <form class="product-form" #loginForm="ngForm">
+            <div class="form-group">
+                <p-floatlabel>
+                    <input pInputText [(ngModel)]="product.nombre" name="nombre" type="text" pSize="large" >
+                    <label for="over_label">Nombre</label>
+                </p-floatlabel>
+            </div>
+            <div class="form-group">
+                <p-floatlabel>
+                    <input pInputText [(ngModel)]="product.descripcion" name="descripcion" type="text" pSize="large" >
+                    <label for="over_label">Descripcion</label>
+                </p-floatlabel>
+            </div>
+            <div class="form-group">
+                <p-floatlabel>
+                    <p-inputnumber [(ngModel)]="product.precio" [min]="1" inputId="over_label" name="precio" mode="currency" currency="USD" locale="en-US" size="large"/>
+                    <label for="over_label">Precio</label>
+                </p-floatlabel>
+            </div>
+        </form>
+        <div class="product-footer">
+            <p-button label="Crear" (onClick)="saveProduct()"/>
+        </div>
+    </div>
+</div>

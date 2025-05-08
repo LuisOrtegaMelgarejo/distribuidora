@@ -1,0 +1,30 @@
+<div class="card">
+    <div class="title">
+        Listado de Productos
+        <button pButton type="button" icon="pi pi-plus" (click)="createProduct()">Crear Producto</button>
+    </div>
+    <p-table [value]="products" [tableStyle]="{ 'min-width': '50rem' }">
+        <ng-template #header>
+            <tr>
+                <th>Nombre</th>
+                <th>descripcion</th>
+                <th>Precio</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </ng-template>
+        <ng-template #body let-product>
+            <tr>
+                <td>{{ product.nombre }}</td>
+                <td>{{ product.descripcion }}</td>
+                <td>{{ product.precio }}</td>
+                <td>
+                    <button pButton pRipple type="button" icon="pi pi-pencil" rounded text severity="secondary" (click)="editProduct(product.id)"></button>
+                </td>
+                <td>
+                    <button pButton pRipple type="button" icon="pi pi-trash" rounded text severity="secondary" (click)="deleteProduct(product.id)"></button>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>

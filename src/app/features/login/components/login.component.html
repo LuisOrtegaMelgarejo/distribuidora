@@ -1,0 +1,23 @@
+<div class="login-box">
+    <div class="login-header">
+        <p>Empresa</p>
+    </div>
+    <form class="login-form" #loginForm="ngForm">
+        <div class="form-group">
+            <p-floatlabel>
+                <input pInputText [(ngModel)]="username" name="username" type="text" pSize="large" >
+                <label for="over_label">Usuario</label>
+            </p-floatlabel>
+        </div>
+        <div class="form-group">
+            <p-floatlabel>
+                <p-password [(ngModel)]="password" name="password" inputId="over_label" [feedback]="false" size="large"/>
+                <label for="over_label">Contraseña</label>
+            </p-floatlabel>
+        </div>
+    </form>
+    <div class="login-footer">
+        <p-toast />
+        <p-button label="Iniciar Sesión" (onClick)="login()"/>
+    </div>
+</div>

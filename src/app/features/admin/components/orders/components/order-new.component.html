@@ -1,0 +1,48 @@
+<div class="card">
+    <button pButton type="button" icon="pi pi-arrow-left"  severity="secondary" (click)="returnToList()"> Volver </button>
+    <div class="title">
+        Crear Orden
+    </div>
+    <div class="order-box">
+        <form class="order-form" #loginForm="ngForm">
+            <div class="form-group">
+                <p-floatlabel>
+                    <p-select [options]="clientes" [(ngModel)]="selectedClient" size="large" name="selectedClient" optionLabel="label" placeholder="Seleccione el cliente" inputId="over_label" />
+                    <label for="over_label">Cliente</label>
+                </p-floatlabel>
+            </div>
+            <div class="form-group">
+                <p-table [value]="selectedItems" [tableStyle]="{ 'min-width': '50rem' }">
+                    <ng-template #header>
+                        <tr>
+                            <th>Producto</th>
+                            <th>Cantidad</th>
+                            <th>Precio/Unidad</th>
+                            <th>Total</th>
+                            <th></th>
+                        </tr>
+                    </ng-template>
+                    <ng-template #body let-item let-ri="rowIndex">
+                        <tr>
+                            <td> 
+                                <p-select [options]="productos" [(ngModel)]="item.producto" appendTo="body" size="large" name="producto-{{ri}}" optionLabel="nombre" placeholder="Seleccione el producto" inputId="over_label" />
+                            </td>
+                            <td>
+                                <p-inputnumber [(ngModel)]="item.cantidad" [min]="1" name="cantidad-{{ri}}" size="large"/>
+                            </td>
+                            <td>{{ item.producto.precio ? '$' + item.producto.precio : '' }}</td>
+                            <td>{{ item.producto.precio ? '$' + (item.cantidad * item.producto.precio).toFixed(2) : '' }}</td>
+                            <td>
+                                <button pButton pRipple type="button" icon="pi pi-trash" rounded text severity="secondary" (click)="deleteItem(ri)"></button>
+                            </td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </div>
+        </form>
+        <div class="order-footer">
+            <button pButton type="button" icon="pi pi-plus" label="Agregar producto" (click)="addItem()" class="p-button-outlined"></button>
+            <button pButton type="button" icon="pi pi-check" label="Crear orden" (click)="saveorder()" ></button>
+        </div>
+    </div>
+</div>

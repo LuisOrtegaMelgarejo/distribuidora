@@ -1,0 +1,22 @@
+<div class="card">
+    <button pButton type="button" icon="pi pi-arrow-left"  severity="secondary" (click)="returnToList()"> Volver </button>
+    <div class="title">
+        Editar Orden {{ originalName }}
+    </div>
+    <div class="order-box">
+        <form class="order-form" #loginForm="ngForm">
+            <div class="form-group">
+                <p-floatlabel>
+                    <input pInputText [(ngModel)]="order.code" name="code" type="text" pSize="large" >
+                    <label for="over_label">Codigo</label>
+                </p-floatlabel>
+            </div>
+            <div class="form-group">
+                <p-floatlabel>
+                    <input pInputText [(ngModel)]="order.name" name="name" type="text" pSize="large" >
+                    <label for="over_label">Nombre</label>
+                </p-floatlabel>
+            </div>
+        </form>
+    </div>
+</div>

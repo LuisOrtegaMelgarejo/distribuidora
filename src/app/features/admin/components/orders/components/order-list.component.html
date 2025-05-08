@@ -1,0 +1,36 @@
+<div class="card">
+    <div class="title">
+        Listado de Ordenes
+        <button pButton type="button" icon="pi pi-plus" (click)="createOrder()">Crear Orden</button>
+    </div>
+    <p-table [value]="orders" [tableStyle]="{ 'min-width': '50rem' }">
+        <ng-template #header>
+            <tr>
+                <th>ID</th>
+                <th>Detalle</th>
+                <th>Fecha</th>
+                <th>Total</th>
+                <!--
+                <th></th>
+                <th></th>
+                -->
+            </tr>
+        </ng-template>
+        <ng-template #body let-order>
+            <tr>
+                <td>{{ order.id }}</td>
+                <td>{{ order.descripcion }}</td>
+                <td>{{ order.fechaPedido[2] + '/' + order.fechaPedido[1] + '/' + order.fechaPedido[0]}}</td>
+                <td>${{ order.total }}</td>
+                <!--
+                <td>
+                    <button pButton pRipple type="button" icon="pi pi-pencil" rounded text severity="secondary" (click)="editOrder(order.id)"></button>
+                </td>
+                <td>
+                    <button pButton pRipple type="button" icon="pi pi-trash" rounded text severity="secondary" (click)="deleteOrder(order.id)"></button>
+                </td>
+                -->
+            </tr>
+        </ng-template>
+    </p-table>
+</div>

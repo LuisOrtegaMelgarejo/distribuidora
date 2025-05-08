@@ -1,0 +1,49 @@
+<div class="card">
+    <button pButton type="button" icon="pi pi-arrow-left"  severity="secondary" (click)="returnToList()"> Volver </button>
+    <div class="title">
+        Crear Cliente
+    </div>
+    <div class="client-box">
+        <form class="client-form" #loginForm="ngForm">
+            <div class="form-group">
+                <p-floatlabel>
+                    <input pInputText [(ngModel)]="client.nombre" name="nombre" type="text" pSize="large" >
+                    <label for="over_label">Nombre</label>
+                </p-floatlabel>
+            </div>
+            <div class="form-group">
+                <p-floatlabel>
+                    <input pInputText [(ngModel)]="client.apellido" name="apellido" type="text" pSize="large" >
+                    <label for="over_label">Apellido</label>
+                </p-floatlabel>
+            </div>
+            <div class="form-group">
+                <p-floatlabel>
+                    <input pInputText [(ngModel)]="client.direccion" name="direccion" type="text" pSize="large" >
+                    <label for="over_label">Direccion</label>
+                </p-floatlabel>
+            </div>
+            <div class="form-group">
+                <p-floatlabel>
+                    <input pInputText [(ngModel)]="client.departamento" name="departamento" type="text" pSize="large" >
+                    <label for="over_label">Departamento</label>
+                </p-floatlabel>
+            </div>
+            <div class="form-group">
+                <p-floatlabel>
+                    <input pInputText [(ngModel)]="client.provincia" name="provincia" type="text" pSize="large" >
+                    <label for="over_label">Provincia</label>
+                </p-floatlabel>
+            </div>
+            <div class="form-group">
+                <p-floatlabel>
+                    <input pInputText [(ngModel)]="client.distrito" name="distrito" type="text" pSize="large" >
+                    <label for="over_label">Distrito</label>
+                </p-floatlabel>
+            </div>
+        </form>
+        <div class="client-footer">
+            <p-button label="Crear" (onClick)="saveClient()"/>
+        </div>
+    </div>
+</div>
